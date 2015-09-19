@@ -1,0 +1,20 @@
+﻿<Window x:Class="ConcurrenceTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConcurrenceTest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top" ToolBarTray.IsLocked="True">
+            <Button Content="保持线程的并发" Click="Button_Click"/>
+            <Button Content="线程池轮询并发" Click="Button_Click_1"/>
+            <Button Content="Task轮询并发" Click="Button_Click_2"/>
+            <Button Content="Parallel轮询并发" Click="Button_Click_4"/>
+            <Button Content="await轮询并发" Click="Button_Click_5"/>
+            <Button Content="停止" Click="Button_Click_3"/>
+        </ToolBar>
+        <TextBox Name="InfoText" IsReadOnly="True" VerticalScrollBarVisibility="Auto"/>
+    </DockPanel>
+</Window>

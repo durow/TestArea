@@ -1,0 +1,29 @@
+﻿<Window x:Class="AsyncTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AsyncTest" WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="异步操作测试" Height="350" Width="525">
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top" ToolBarTray.IsLocked="True">
+            <Button Name="ThreadButton" Content="线程异步" Click="ThreadButton_Click"/>
+            <Button Name="ThreadPoolButton" Content="线程池异步" Click="ThreadPoolButton_Click"/>
+            <Button Name="TaskButton" Content="Task异步" Click="TaskButton_Click"/>
+            <Button Name="AwaitButton" Content="await异步" Click="AwaitButton_Click"/>
+        </ToolBar>
+        <ToolBar DockPanel.Dock="Top" ToolBarTray.IsLocked="True">
+            <Button Name="ThreadTest" Content="线程异步性能" Click="ThreadTest_Click"/>
+            <Button Name="ThreadPoolTest" Content="线程池异步性能" Click="ThreadPoolTest_Click"/>
+            <Button Name="TaskTest" Content="Task异步性能" Click="TaskTest_Click"/>
+            <Button Name="AwaitTest" Content="await异步性能" Click="AwaitTest_Click"/>
+        </ToolBar>
+        <DockPanel DockPanel.Dock="Top">
+            <Button Content="清空信息" Margin="5,0,5,0" Click="Button_Click" DockPanel.Dock="Right"/>
+            <TextBlock Text="信息输出：" Margin="2,2,2,0"/>
+        </DockPanel>
+        <TextBox Name="OutInfo" IsReadOnly="True" VerticalScrollBarVisibility="Auto" Margin="2"/>
+    </DockPanel>
+</Window>
+ 

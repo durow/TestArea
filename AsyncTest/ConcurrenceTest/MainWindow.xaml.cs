@@ -182,15 +182,6 @@ namespace ConcurrenceTest
             {
                 foreach (var task in taskList)
                 {
-                    //Task<int> t = new Task<int>(task.ReceiveData);
-                    //t.ContinueWith(new Action<Task<int>>(r =>
-                    //{
-                    //    if (r.Result != -1)
-                    //    {
-                    //        ShowInfo(task.TaskID, r.Result);
-                    //    }
-                    //}));
-                    //t.Start();
                     Task.Run(new Action(()=> {
                         var time = task.ReceiveData();
                         counter++;
@@ -208,8 +199,7 @@ namespace ConcurrenceTest
 
         #region Parallel轮询并发
 
-        
-
+        //Parallel并发按钮
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             InitData();

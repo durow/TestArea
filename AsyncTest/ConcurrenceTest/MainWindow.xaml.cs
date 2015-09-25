@@ -106,7 +106,6 @@ namespace ConcurrenceTest
         {
             InitData();
             InitTaskList();
-
             new Thread(ThreadPoolFunction)
             { IsBackground = true }.Start();
         }
@@ -122,8 +121,8 @@ namespace ConcurrenceTest
                 {
                     ThreadPool.QueueUserWorkItem((s =>
                     {
-                        var time = task.ReceiveData();
                         counter++;
+                        var time = task.ReceiveData();
                         if (time != -1)
                         {
                             ShowInfo(task.TaskID, time);
@@ -204,7 +203,6 @@ namespace ConcurrenceTest
         {
             InitData();
             InitTaskList();
-
             new Thread(ParallelFunction2)
             { IsBackground = true }.Start();
         }
@@ -219,7 +217,7 @@ namespace ConcurrenceTest
                 Parallel.ForEach(taskList, new Action<TestTask>(task =>
                 {
                     var time = task.ReceiveData();
-                    counter++;
+                    
                     if (time != -1)
                     {
                         ShowInfo(task.TaskID, time);
@@ -266,23 +264,27 @@ namespace ConcurrenceTest
         /// <summary>
         /// await轮询
         /// </summary>
-        private async void AwaitFunction()
+        private void AwaitFunction()
         {
             while(isWorking)
             {
                 foreach (var task in taskList)
                 {
-                    var t = new Task<int>(task.ReceiveData);
-                    t.Start();
-                    var time = await t;
-                    counter++;
-                    if (time != -1)
-                    {
-                        ShowInfo(task.TaskID, time);
-                    }
-                    
+                    ReceiveDataAsync(task);
                 }
                 Thread.Sleep(sleepTime);
+            }
+        }
+
+        private async void ReceiveDataAsync(TestTask task)
+        {
+            var t = new Task<int>(task.ReceiveData);
+            t.Start();
+            var time = await t;
+            counter++;
+            if (time != -1)
+            {
+                ShowInfo(task.TaskID, time);
             }
         }
 
@@ -300,6 +302,7 @@ namespace ConcurrenceTest
     class TestTask
     {
         Random rand;
+        private bool isBusy = false;
         public int TaskID { get; private set; }
 
         public TestTask(int seed)
@@ -314,8 +317,16 @@ namespace ConcurrenceTest
         /// <returns>接收到的数据，-1表示未接收</returns>
         public int ReceiveData()
         {
+            if (isBusy) return -1;
+            isBusy = true;
             var i = rand.Next(0, 1000);
-            if (i < 990) return -1;
+            if (i < 990)
+            {
+                isBusy = false;
+                return -1;
+            }
+            Thread.Sleep(100);
+            isBusy = false;
             return i;
         }
 

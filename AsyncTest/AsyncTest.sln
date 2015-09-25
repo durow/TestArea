@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncTest", "AsyncTest\Asyn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConcurrenceTest", "ConcurrenceTest\ConcurrenceTest.csproj", "{4CC3BAC6-8886-4386-B5DA-DB503171D351}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwaitTest", "AwaitTest\AwaitTest.csproj", "{6192351F-AE96-46C7-B8F1-28DA355CCC2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4CC3BAC6-8886-4386-B5DA-DB503171D351}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CC3BAC6-8886-4386-B5DA-DB503171D351}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CC3BAC6-8886-4386-B5DA-DB503171D351}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6192351F-AE96-46C7-B8F1-28DA355CCC2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6192351F-AE96-46C7-B8F1-28DA355CCC2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6192351F-AE96-46C7-B8F1-28DA355CCC2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6192351F-AE96-46C7-B8F1-28DA355CCC2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

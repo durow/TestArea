@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Xml;
 
 namespace ConfigFileTest
@@ -69,9 +66,8 @@ namespace ConfigFileTest
         }
 
         /// <summary>
-        /// 创建配置文件，可在继承类中重写此方法
+        /// 创建配置文件，可在子类中重写此方法
         /// </summary>
-        /// <param name="filename">配置文件名</param>
         protected virtual void CreateFile()
         {
             XmlDocument doc = new XmlDocument();

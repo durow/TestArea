@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMTest", "MVVMTest\MVVMTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMVVM", "MyMVVM\MyMVVM.csproj", "{8A25877B-C0DF-48EA-853C-DBA315343A1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBindingTest", "DataBindingTest\DataBindingTest.csproj", "{F77FD401-1F18-4EB9-B4FC-1694CAE34C18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBinding", "DataBinding\DataBinding.csproj", "{637B9916-0DE3-44F0-B456-70B56B836F21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{8A25877B-C0DF-48EA-853C-DBA315343A1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A25877B-C0DF-48EA-853C-DBA315343A1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A25877B-C0DF-48EA-853C-DBA315343A1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F77FD401-1F18-4EB9-B4FC-1694CAE34C18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F77FD401-1F18-4EB9-B4FC-1694CAE34C18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F77FD401-1F18-4EB9-B4FC-1694CAE34C18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F77FD401-1F18-4EB9-B4FC-1694CAE34C18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{637B9916-0DE3-44F0-B456-70B56B836F21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{637B9916-0DE3-44F0-B456-70B56B836F21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{637B9916-0DE3-44F0-B456-70B56B836F21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{637B9916-0DE3-44F0-B456-70B56B836F21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,114 @@
+﻿<Window x:Class="DataBinding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataBinding"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="486.518" Width="608.375" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Right"/>
+            <Setter Property="Margin" Value="0,0,2,0"/>
+        </Style>
+        <Style TargetType="DockPanel">
+            <Setter Property="Margin" Value="1"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel Style="{x:Null}">
+        <DockPanel.Background>
+            <SolidColorBrush
+                    Color="LightSteelBlue"
+                    Opacity="{Binding DoubleValue}"/>
+        </DockPanel.Background>
+        <TextBox 
+            Margin="5"
+            DockPanel.Dock="Top" 
+            IsReadOnly="True"
+            Text="{Binding DoubleValue}"/>
+        <Slider 
+            Margin="5"
+            DockPanel.Dock="Top" 
+            Minimum="0"
+            Maximum="1"
+            Value="{Binding DoubleValue}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid
+                Margin="5"
+                Name="TestDataGrid"
+                AutoGenerateColumns="False"
+                Grid.Column="0"
+                ItemsSource="{Binding TestDataList}"
+                SelectedItem="{Binding SelectedData}"
+                CanUserAddRows="False"
+                IsReadOnly="True"
+                VerticalGridLinesBrush="LightSteelBlue"
+                HorizontalGridLinesBrush="LightSteelBlue">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="添加时间" Binding="{Binding AddDateTime}"/>
+                    <DataGridTextColumn Header="字符串" Binding="{Binding StringValue}"/>
+                    <DataGridTextColumn Header="数字" Binding="{Binding IntValue}"/>
+                    <DataGridTextColumn Header="布尔" Binding="{Binding BoolValue}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel 
+                Grid.Column="1" 
+                Margin="5" >
+                <DockPanel>
+                    <TextBlock Text="添加时间:"/>
+                    <TextBox Text="{Binding SelectedData.AddDateTime}"/>
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock Text="字符串:"/>
+                    <TextBox Text="{Binding ElementName=TestDataGrid, Path=SelectedItem.StringValue}"/>
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock Text="数字:"/>
+                    <TextBox Text="{Binding SelectedData.IntValue}"/>
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock Text="布尔值:"/>
+                    <TextBox Text="{Binding SelectedData.BoolValue}"/>
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock Text="复选框:"/>
+                    <CheckBox IsChecked="{Binding SelectedData.BoolValue}"/>
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock Text="下拉菜单:"/>
+                    <ComboBox
+                        ItemsSource="{Binding TestDataList}"
+                        SelectedItem="{Binding SelectedData}"
+                        DisplayMemberPath="StringValue">
+                    </ComboBox>
+                </DockPanel>
+                <ListBox
+                    Height="270"
+                    ItemsSource="{Binding TestDataList}"
+                    SelectedItem="{Binding SelectedData}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border
+                                BorderBrush="CornflowerBlue"
+                                CornerRadius="10"
+                                BorderThickness="2">
+                                <StackPanel Orientation="Horizontal" Margin="5">
+                                    <CheckBox IsChecked="{Binding BoolValue}" Margin="2"/>
+                                    <TextBlock Text="{Binding AddDateTime}" Margin="2"/>
+                                    <TextBlock Text="{Binding IntValue}" Margin="2"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </Grid>
+        
+    </DockPanel>
+</Window>

@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MyMVVM;
 
 namespace MVVMTest
 {
@@ -22,6 +23,7 @@ namespace MVVMTest
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = ViewModelManager.GetViewModel<MainWindowViewModel>(this);
         }
     }
 }

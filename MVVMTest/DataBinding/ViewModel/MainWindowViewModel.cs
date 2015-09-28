@@ -8,7 +8,7 @@ using System.Text;
 
 namespace DataBinding.ViewModel
 {
-    class MainWindowViewModel:NotificationObject
+    class MainWindowViewModel:NotifyObject
     {
         private double _doubleValue;
         /// <summary>

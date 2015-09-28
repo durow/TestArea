@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:MVVMTest"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <TextBox IsReadOnly="True" Text="{Binding DoubleValue}" DockPanel.Dock="Top"/>
+        <Slider Minimum="0" Maximum="100" Value="{Binding DoubleValue}" DockPanel.Dock="Top"/>
+        <DataGrid/>
+    </DockPanel>
 </Window>

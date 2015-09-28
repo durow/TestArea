@@ -4,7 +4,7 @@ using System.Windows.Interactivity;
 
 namespace MyMVVM
 {
-    public class MyEvent : TriggerAction<DependencyObject>
+    public class MyEventCommand : TriggerAction<DependencyObject>
     {
 
         /// <summary>
@@ -18,7 +18,7 @@ namespace MyMVVM
 
         // Using a DependencyProperty as the backing store for Command.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CommandProperty =
-            DependencyProperty.Register("Command", typeof(ICommand), typeof(MyEvent), new PropertyMetadata(null));
+            DependencyProperty.Register("Command", typeof(ICommand), typeof(MyEventCommand), new PropertyMetadata(null));
 
         /// <summary>
         /// 绑定命令的参数，保持为空就是事件的参数
@@ -31,7 +31,7 @@ namespace MyMVVM
 
         // Using a DependencyProperty as the backing store for CommandParateter.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CommandParateterProperty =
-            DependencyProperty.Register("CommandParateter", typeof(object), typeof(MyEvent), new PropertyMetadata(null));
+            DependencyProperty.Register("CommandParateter", typeof(object), typeof(MyEventCommand), new PropertyMetadata(null));
 
         //执行事件
         protected override void Invoke(object parameter)

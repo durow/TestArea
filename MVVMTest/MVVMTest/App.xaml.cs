@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Windows;
+using MyMVVM;
 
 namespace MVVMTest
 {
@@ -12,5 +13,9 @@ namespace MVVMTest
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            //ViewModelManager.RegisterType<MainWindow, MainWindowViewModel>();
+        }
     }
 }

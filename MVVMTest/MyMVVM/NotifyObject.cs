@@ -2,7 +2,7 @@
 
 namespace MyMVVM
 {
-    public class NotificationObject : INotifyPropertyChanged
+    public class NotifyObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -16,6 +16,13 @@ namespace MyMVVM
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        protected virtual void SetAndNotiryIfChanged<T>(string propertyName, ref T oldValue, T newValue)
+        {
+            if (oldValue.Equals(newValue)) return;
+            oldValue = newValue;
+            RaisePropertyChanged(propertyName);
         }
     }
 }

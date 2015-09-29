@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DispatcherHelper.cs" />
+    <Compile Include="MessageInfo.cs" />
+    <Compile Include="MessageManager.cs" />
     <Compile Include="ModelBase.cs" />
     <Compile Include="MyCommand.cs" />
     <Compile Include="MyCommandGeneric.cs" />

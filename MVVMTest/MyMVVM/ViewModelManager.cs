@@ -9,10 +9,29 @@ namespace MyMVVM
 {
     public class ViewModelManager
     {
-        private static readonly List<ViewModelInfo> InstanceList = new List<ViewModelInfo>();
-        private static readonly Dictionary<Type, Type> TypeList = new Dictionary<Type, Type>();
+        private ViewModelManager _default;
 
-        public static void RegisterType<TView,TViewModel>()
+        public ViewModelManager Default
+        {
+            get
+            {
+                if (_default == null)
+                    _default = new ViewModelManager();
+                return _default;
+            }
+        }
+
+        private readonly Dictionary<Type, Type> TypeList = new Dictionary<Type, Type>();
+
+        public ViewModelManager()
+        {
+            InitViewModels();
+        }
+
+        private void InitViewModels()
+        { }
+
+        public void RegisterType<TView,TViewModel>()
         {
             var viewType = typeof (TView);
             if (TypeList.ContainsKey(viewType))
@@ -21,7 +40,7 @@ namespace MyMVVM
             TypeList.Add(viewType, vmType);
         }
 
-        public static object GetViewModel(object view)
+        public object GetViewModel(object view)
         {
             if (view == null) return null;
             var viewType = view.GetType();
@@ -31,7 +50,7 @@ namespace MyMVVM
             return vmType.Assembly.CreateInstance(vmType.FullName);
         }
 
-        public static object GetViewModel<T>(object view)
+        public object GetViewModel<T>(object view)
         {
             if (view == null) return null;
             var viewType = view.GetType();

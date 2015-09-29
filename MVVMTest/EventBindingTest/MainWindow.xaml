@@ -1,0 +1,25 @@
+﻿<Window x:Class="EventBindingTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:cmd="clr-namespace:MyMVVM;assembly=MyMVVM"
+        xmlns:local="clr-namespace:EventBindingTest"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="350" Width="525">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="MouseMove">
+            <cmd:MyEventCommand Command="{Binding MouseMoveCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <DockPanel>
+        <CheckBox Content="接收鼠标移动消息" DockPanel.Dock="Top" Margin="5"
+                      VerticalAlignment="Center" IsChecked="{Binding IsReceiveMouseMove}"/>
+        <Label Grid.Row="0" Content="{Binding TipText}" Margin="5"/>
+    </DockPanel>
+</Window>

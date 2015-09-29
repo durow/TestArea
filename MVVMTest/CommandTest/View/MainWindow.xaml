@@ -1,0 +1,22 @@
+﻿<Window x:Class="CommandTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CommandTest"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="186.994" Width="319.206">
+    <StackPanel Orientation="Vertical">
+        <Button Content="普通按钮测试" Command="{Binding NormalCommand}" DockPanel.Dock="Top" Margin="5"/>
+        <CheckBox IsChecked="{Binding CanExecute}" Content="允许点击按钮" Margin="5,5,5,0"/>
+        <Button Content="可以禁止点击的按钮" Command="{Binding CanExecuteCommand}" Margin="5"/>
+        <DockPanel Margin="5,5,5,0">
+            <TextBlock Text="输入参数：" VerticalAlignment="Center"/>
+            <TextBox Name="ParamTextBox" DockPanel.Dock="Top" Margin="5"/>
+        </DockPanel>
+        <Button Content="带参数的按钮" 
+                Command="{Binding ParamCommand}" 
+                CommandParameter="{Binding ElementName=ParamTextBox, Path=Text}" 
+                Margin="5,0,5,5"/>
+    </StackPanel>
+</Window>

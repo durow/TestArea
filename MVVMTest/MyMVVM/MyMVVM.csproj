@@ -47,6 +47,7 @@
     <Compile Include="DispatcherHelper.cs" />
     <Compile Include="ModelBase.cs" />
     <Compile Include="MyCommand.cs" />
+    <Compile Include="MyCommandGeneric.cs" />
     <Compile Include="MyEventCommand.cs" />
     <Compile Include="NotifyObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

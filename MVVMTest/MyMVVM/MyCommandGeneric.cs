@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Windows.Input;
 
 namespace MyMVVM
 {
-    public class MyCommand : ICommand
+    public class MyCommand<T>:ICommand
     {
-
         /// <summary>
         /// 检查命令是否可以执行的事件，在UI事件发生导致控件状态或数据发生变化时触发
         /// </summary>
@@ -13,35 +15,35 @@ namespace MyMVVM
         {
             add
             {
-                if(_canExecute != null)
+                if (_canExecute != null)
                 {
                     CommandManager.RequerySuggested += value;
                 }
             }
             remove
             {
-                if(_canExecute != null)
+                if (_canExecute != null)
                 {
                     CommandManager.RequerySuggested -= value;
                 }
             }
         }
-        
+
         /// <summary>
         /// 判断命令是否可以执行的方法
         /// </summary>
-        private Func<object, bool> _canExecute;
+        private Func<T, bool> _canExecute;
 
         /// <summary>
         /// 命令需要执行的方法
         /// </summary>
-        private Action<object> _execute;
+        private Action<T> _execute;
 
         /// <summary>
         /// 创建一个命令
         /// </summary>
         /// <param name="execute">命令要执行的方法</param>
-        public MyCommand(Action<object> execute):this(execute,null)
+        public MyCommand(Action<T> execute):this(execute, null)
         {
         }
 
@@ -50,7 +52,7 @@ namespace MyMVVM
         /// </summary>
         /// <param name="execute">命令要执行的方法</param>
         /// <param name="canExecute">判断命令是否能够执行的方法</param>
-        public MyCommand(Action<object> execute, Func<object,bool> canExecute)
+        public MyCommand(Action<T> execute, Func<T, bool> canExecute)
         {
             _execute = execute;
             _canExecute = canExecute;
@@ -64,7 +66,7 @@ namespace MyMVVM
         public bool CanExecute(object parameter)
         {
             if (_canExecute == null) return true;
-            return _canExecute(parameter);
+            return _canExecute((T)parameter);
         }
 
         /// <summary>
@@ -73,9 +75,9 @@ namespace MyMVVM
         /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
-            if(_execute != null && CanExecute(parameter))
+            if (_execute != null && CanExecute(parameter))
             {
-                _execute(parameter);
+                _execute((T)parameter);
             }
         }
     }

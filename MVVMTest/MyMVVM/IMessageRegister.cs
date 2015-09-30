@@ -9,7 +9,6 @@ namespace MyMVVM
     {
         object RegInstance { get; set; }
         IMessageManager MsgManager { get; set; }
-
         void Register();
     }
 }

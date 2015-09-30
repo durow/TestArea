@@ -8,7 +8,7 @@ using MyMVVM;
 
 namespace MessageTest
 {
-    class MainWindowViewModel:NotifyObject
+    class MainWindowViewModel:ViewModelBase
     {
 
         private MyCommand _msgTestCommand;
@@ -21,7 +21,7 @@ namespace MessageTest
                     _msgTestCommand = new MyCommand(
                         new Action<object>(o =>
                         {
-                            MessageManager.Default.SendMsg("ShowBox", "测试测试");
+                            MsgManager.SendMsg("ShowBox", "测试测试");
                         }));
                 return _msgTestCommand;
             }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MyMVVM
 {
-    public class MessageManager
+    public class MessageManager:IMessageManager
     {
         private static MessageManager _default;
 
@@ -25,7 +25,7 @@ namespace MyMVVM
         {
             _messageList.Add(new MsgActionInfo
             {
-                RegistedType = regInstance.GetType(),
+                RegInstance = regInstance,
                 MsgName = msgName,
                 Action = action,
                 Group = group
@@ -36,7 +36,7 @@ namespace MyMVVM
         {
             _messageList.Add(new MsgActionInfo<T>
             {
-                RegistedType = regInstance.GetType(),
+                RegInstance = regInstance,
                 MsgName = msgName,
                 Action = action,
                 Group = group
@@ -66,7 +66,7 @@ namespace MyMVVM
 
         public void UnRegister(object regInstance)
         {
-            var msgActions = _messageList.Where(m => m.RegInstance == regInstance);
+            var msgActions = _messageList.Where(m => m.RegInstance == regInstance).ToList();
             foreach (var item in msgActions)
             {
                 _messageList.Remove(item);
@@ -91,6 +91,11 @@ namespace MyMVVM
                     && m.Group == group 
                     && m.RegInstance.GetType() == targetType);
             }
+        }
+
+        public void WindowClose(object sender,EventArgs e)
+        {
+            UnRegister(sender);
         }
     }
 }

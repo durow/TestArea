@@ -9,18 +9,26 @@ namespace MyMVVM
 {
     public class ViewModelManager
     {
-        private IMessageRegister _messageRegister;
-        public IMessageRegister MessageRegister
+        public static void RegisterViewModel(FrameworkElement view, ViewModelBase viewmodel, IMessageRegister msgRegister=null)
         {
-            private get { return _messageRegister; } 
-            set
-            {
-                if (_messageRegister != value)
-                {
-                    _messageRegister = value;
-                    MessageRegister.Register();
-                }
-            }
+            if (view == null || viewmodel==null) return;
+            //设定数据环境
+            view.DataContext = viewmodel;
+            //设置ViewModel的Dispatcher
+            viewmodel.UIDispatcher = view.Dispatcher;
+            
+            //无需注册消息则直接返回
+            if (msgRegister == null) return;
+            if (msgRegister.RegInstance == null)
+                msgRegister.RegInstance = view;
+
+            viewmodel.MsgManager = msgRegister.MsgManager;
+
+            var win = view as Window;
+            if (win != null)
+                win.Closed += msgRegister.MsgManager.WindowClose;
+            //注册消息
+            msgRegister.Register();
         }
     }
 }

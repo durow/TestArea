@@ -9,12 +9,5 @@ namespace MessageTest
 {
     class VmManager:ViewModelManager
     {
-        public object MainWindow
-        {
-            get
-            {
-                return new MainWindowViewModel();
-            }
-        }
     }
 }

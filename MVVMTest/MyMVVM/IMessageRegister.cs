@@ -10,5 +10,7 @@ namespace MyMVVM
         object RegInstance { get; set; }
         IMessageManager MsgManager { get; set; }
         void Register();
+        void RegisterMsg(string msgName,Action action,string group);
+        void RegisterMsg<T>(string msgName, Action<T> action, string group);
     }
 }

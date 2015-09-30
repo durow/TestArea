@@ -10,21 +10,31 @@ namespace MessageTest
 {
     class MainWindowViewModel:ViewModelBase
     {
+        private MyCommand _CmdTest;
 
-        private MyCommand _msgTestCommand;
-
-        public MyCommand MsgTestCommand
+        /// <summary>
+        /// Gets the CmdTest.
+        /// </summary>
+        public MyCommand CmdTest
         {
             get
             {
-                if (_msgTestCommand == null)
-                    _msgTestCommand = new MyCommand(
-                        new Action<object>(o =>
-                        {
-                            MsgManager.SendMsg("ShowBox", "测试测试");
-                        }));
-                return _msgTestCommand;
+                if (_CmdTest == null)
+                    _CmdTest = new MyCommand(
+                        CmdTestFunction,
+                        CanExecuteCmdTest);
+                return _CmdTest;
             }
+        }
+
+        private void CmdTestFunction(object parameter)
+        {
+
+        }
+
+        private bool CanExecuteCmdTest(object parameter)
+        {
+            return true;
         }
     }
 }

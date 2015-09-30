@@ -20,7 +20,9 @@ namespace MyMVVM
 
         protected virtual void SetAndNotiryIfChanged<T>(string propertyName, ref T oldValue, T newValue)
         {
-            if (oldValue.Equals(newValue)) return;
+            if (oldValue == null && newValue == null) return;
+            if (oldValue != null && oldValue.Equals(newValue)) return;
+            if (newValue != null && newValue.Equals(oldValue)) return;
             oldValue = newValue;
             RaisePropertyChanged(propertyName);
         }

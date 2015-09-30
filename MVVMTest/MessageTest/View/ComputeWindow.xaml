@@ -1,14 +1,12 @@
-﻿<Window x:Class="MVVMTest.MainWindow"
+﻿<Window x:Class="MessageTest.View.ComputeWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MVVMTest"
+        xmlns:local="clr-namespace:MessageTest.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="ComputeWindow" Height="300" Width="300">
     <DockPanel>
-        <TextBox IsReadOnly="True" Text="{Binding DoubleValue}" DockPanel.Dock="Top"/>
-        <Slider Minimum="0" Maximum="100" Value="{Binding DoubleValue}" DockPanel.Dock="Top"/>
-        <DataGrid/>
+        
     </DockPanel>
 </Window>

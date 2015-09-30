@@ -1,0 +1,48 @@
+﻿<Window x:Class="MVVMTest.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVMTest"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:mvvm="clr-namespace:MyMVVM;assembly=MyMVVM"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="513" Width="766">
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top" ToolBarTray.IsLocked="True">
+            <Button Content="添加" Command="{Binding CmdAdd}"/>
+            <Button Content="编辑" Command="{Binding CmdEdit}"/>
+            <Button Content="删除" Command="{Binding CmdDelete}"/>
+        </ToolBar>
+        <DockPanel DockPanel.Dock="Bottom">
+            <TextBlock Text="{Binding TipText}"/>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Right" Width="200"/>
+        <DataGrid
+            AutoGenerateColumns="False"
+            VerticalGridLinesBrush="LightSteelBlue"
+            HorizontalGridLinesBrush="LightSteelBlue"
+            IsReadOnly="True"
+            SelectionMode="Single"
+            CanUserAddRows="False"
+            LoadingRow="DataGrid_LoadingRow"
+            ItemsSource="{Binding TestDataList}"
+            SelectedItem="{Binding SelectedData}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="选择">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox 
+                                VerticalAlignment="Center" 
+                                HorizontalAlignment="Center" 
+                                IsChecked="{Binding BoolValue}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="添加日期" Binding="{Binding AddDateTime}"/>
+                <DataGridTextColumn Header="字符串内容" Binding="{Binding StringValue}"/>
+                <DataGridTextColumn Header="数字内容" Binding="{Binding IntValue}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

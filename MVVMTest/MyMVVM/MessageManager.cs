@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows;
 
 namespace MyMVVM
 {
@@ -95,7 +96,12 @@ namespace MyMVVM
 
         public void WindowClose(object sender,EventArgs e)
         {
+            //注销窗体的消息
             UnRegister(sender);
+            //注销ViewModel的消息
+            var win = sender as FrameworkElement;
+            if (win != null)
+                UnRegister(win.DataContext);
         }
     }
 }

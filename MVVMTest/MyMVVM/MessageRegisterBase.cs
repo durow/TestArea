@@ -35,5 +35,14 @@ namespace MyMVVM
         }
 
         public abstract void Register();
+        public void RegisterMsg(string msgName, Action action, string group="")
+        {
+            MsgManager.Register(RegInstance, msgName, action, group);
+        }
+
+        public void RegisterMsg<T>(string msgName, Action<T> action, string group="")
+        {
+            MsgManager.Register(RegInstance,msgName, action, group);
+        }
     }
 }

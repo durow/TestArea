@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using MyMVVM;
+using MessageTest.View;
 
 namespace MessageTest.Message
 {
@@ -12,7 +13,21 @@ namespace MessageTest.Message
     {
         public override void Register()
         {
-            MsgManager.Register<string>(RegInstance, "ShowBox", new Action<string>(s => MessageBox.Show(s)));
+            RegisterMsg("ShowBox", new Action<string>(s => MessageBox.Show(s)));
+
+            RegisterMsg<ConfirmMsgArgs>("ShowConfirmBox", a =>
+             {
+                 if (MessageBox.Show(a.Content, a.Title, MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                     a.Result = true;
+                 else
+                     a.Result = false;
+             });
+
+            RegisterMsg<ComputeMsgArgs>("ShowComputeWindow", a => {
+                ComputeWindow win = new ComputeWindow();
+                win.Owner = RegInstance as Window;
+                win.ShowDialog();
+            });
         }
     }
 }

@@ -1,0 +1,40 @@
+﻿<Window x:Class="MessageTest.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MessageTest.View"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="300" Width="372.747" >
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5,5,0,5"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="30"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <Button Content="普通MessageBox测试" DockPanel.Dock="Top" Margin="5"
+                Command="{Binding CmdNormal}"/>
+        <Button Content="确认MessageBox测试" DockPanel.Dock="Top" Margin="5"
+                Command="{Binding CmdConfirm}" Background="{Binding BgBrush}"/>
+        <GroupBox Header="窗体参数传递测试" Margin="5" DockPanel.Dock="Top">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="数值1："/>
+                    <TextBox Width="50" Margin="5" Text="{Binding NumOne}"/>
+                    <TextBlock Text="数值2："/>
+                    <TextBox Width="50" Margin="5" Text="{Binding NumTwo}"/>
+                    <TextBlock Text="结果："/>
+                    <TextBox Width="50" Margin="5" Text="{Binding NumResult}" IsReadOnly="True"/>
+                </StackPanel>
+                <Button Content="计算" Command="{Binding CmdCompute}"/>
+            </StackPanel>
+        </GroupBox>
+        <Button Content="非模态对话框测试" DockPanel.Dock="Top" Margin="5"
+                Command="{Binding CmdModeless}"/>
+        <TextBox/>
+    </DockPanel>
+</Window>

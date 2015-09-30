@@ -20,7 +20,7 @@ namespace MVVMTest.ViewModel
             get { return _selectedData; }
             set
             {
-                SetAndNotiryIfChanged("SelectedData", ref _selectedData, value);
+                SetAndNotifyIfChanged("SelectedData", ref _selectedData, value);
             }
         }
 
@@ -32,7 +32,7 @@ namespace MVVMTest.ViewModel
             set
             {
                 _testDataList = value;
-                SetAndNotiryIfChanged("TestDataList", ref _testDataList, value);
+                SetAndNotifyIfChanged("TestDataList", ref _testDataList, value);
             }
         }
 

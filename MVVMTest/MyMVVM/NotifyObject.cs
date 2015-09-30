@@ -18,7 +18,7 @@ namespace MyMVVM
             }
         }
 
-        protected virtual void SetAndNotiryIfChanged<T>(string propertyName, ref T oldValue, T newValue)
+        protected virtual void SetAndNotifyIfChanged<T>(string propertyName, ref T oldValue, T newValue)
         {
             if (oldValue == null && newValue == null) return;
             if (oldValue != null && oldValue.Equals(newValue)) return;

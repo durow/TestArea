@@ -34,6 +34,12 @@ namespace MyMVVM
             set { _msgManager = value; }
         }
 
+        public MessageRegisterBase(object regInstance=null, IMessageManager msgManager=null)
+        {
+            if (regInstance != null) RegInstance = regInstance;
+            if (msgManager != null) MsgManager = msgManager;
+        }
+
         public abstract void Register();
         public void RegisterMsg(string msgName, Action action, string group="")
         {

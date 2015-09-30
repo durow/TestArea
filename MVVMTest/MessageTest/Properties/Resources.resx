@@ -61,17 +61,17 @@
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexRegistedType>
+      <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
-            <xsd:complexRegistedType>
+            <xsd:complexType>
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
               <xsd:attribute name="name" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
-            </xsd:complexRegistedType>
+            </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
@@ -99,7 +99,7 @@
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
-      </xsd:complexRegistedType>
+      </xsd:complexType>
     </xsd:element>
   </xsd:schema>
   <resheader name="resmimetype">

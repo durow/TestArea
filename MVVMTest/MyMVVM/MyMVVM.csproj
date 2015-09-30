@@ -45,14 +45,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DispatcherHelper.cs" />
-    <Compile Include="MessageInfo.cs" />
+    <Compile Include="MessageRegister.cs" />
+    <Compile Include="MsgActionInfo.cs" />
+    <Compile Include="MsgActionInfoGeneric.cs" />
     <Compile Include="MessageManager.cs" />
     <Compile Include="ModelBase.cs" />
+    <Compile Include="MsgArgs.cs" />
     <Compile Include="MyCommand.cs" />
     <Compile Include="MyCommandGeneric.cs" />
     <Compile Include="MyEventCommand.cs" />
     <Compile Include="NotifyObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringArgs.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="ViewModelInfo.cs" />
     <Compile Include="ViewModelManager.cs" />

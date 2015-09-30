@@ -16,9 +16,9 @@ namespace MyMVVM
             set { SetValue(CommandProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Command.  This enables animation, styling, binding, etc...
+        // Using a DependencyProperty as the backing store for MsgName.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CommandProperty =
-            DependencyProperty.Register("Command", typeof(ICommand), typeof(MyEventCommand), new PropertyMetadata(null));
+            DependencyProperty.Register("MsgName", typeof(ICommand), typeof(MyEventCommand), new PropertyMetadata(null));
 
         /// <summary>
         /// 绑定命令的参数，保持为空就是事件的参数

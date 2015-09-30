@@ -19,14 +19,78 @@ namespace MyMVVM
             }
         }
 
-        private List<MessageInfo> _messageList = new List<MessageInfo>();
+        private readonly List<MsgActionInfo> _messageList = new List<MsgActionInfo>();
 
-        public void Register(string command, Action action)
+        public void Register(object regInstance, string msgName, Action action, string group = "")
         {
-            _messageList.Add(new MessageInfo
+            _messageList.Add(new MsgActionInfo
             {
-                
-            })
+                RegistedType = regInstance.GetType(),
+                MsgName = msgName,
+                Action = action,
+                Group = group
+            });
+        }
+
+        public void Register<T>(object regInstance, string msgName, Action<T> action, string group = "")
+        {
+            _messageList.Add(new MsgActionInfo<T>
+            {
+                RegistedType = regInstance.GetType(),
+                MsgName = msgName,
+                Action = action,
+                Group = group
+            });
+        }
+
+        public void SendMsg(string msgName, Type targetType = null, string group = "")
+        {
+            var actions = GetMsgActionInfo(msgName, targetType, group);
+
+            foreach (var item in actions)
+            {
+                item.Execute();
+            }
+        }
+
+        public void SendMsg<T>(string msgName, T msgArgs, Type targetType = null, string group = "")
+        {
+            var actions = GetMsgActionInfo(msgName, targetType, group);
+            foreach (var item in actions)
+            {
+                var msgAction = item as MsgActionInfo<T>;
+                if (msgAction != null)
+                    msgAction.Execute(msgArgs);
+            }
+        }
+
+        public void UnRegister(object regInstance)
+        {
+            var msgActions = _messageList.Where(m => m.RegInstance == regInstance);
+            foreach (var item in msgActions)
+            {
+                _messageList.Remove(item);
+            }
+        }
+
+        public void Clear()
+        {
+            _messageList.Clear();
+        }
+
+        private IEnumerable<MsgActionInfo> GetMsgActionInfo(string msgName, Type targetType, string group)
+        {
+            if (targetType == null)
+                return _messageList.Where(m => 
+                    m.MsgName == msgName 
+                    && m.Group == group);
+            else
+            {
+                return _messageList.Where(m => 
+                    m.MsgName == msgName 
+                    && m.Group == group 
+                    && m.RegInstance.GetType() == targetType);
+            }
         }
     }
 }

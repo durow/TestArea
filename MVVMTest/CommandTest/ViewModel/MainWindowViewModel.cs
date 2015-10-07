@@ -1,9 +1,6 @@
-﻿using MyMVVM;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
 using System.Windows;
+using MyMVVM;
 
 namespace CommandTest.ViewModel
 {
@@ -11,7 +8,6 @@ namespace CommandTest.ViewModel
     {
 
         private bool _canExecute;
-
         public bool CanExecute
         {
             get { return _canExecute; }

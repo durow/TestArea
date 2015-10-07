@@ -47,7 +47,6 @@
                 ItemsSource="{Binding TestDataList}"
                 SelectedItem="{Binding SelectedData}"
                 CanUserAddRows="False"
-                IsReadOnly="True"
                 VerticalGridLinesBrush="LightSteelBlue"
                 HorizontalGridLinesBrush="LightSteelBlue">
                 <DataGrid.Columns>

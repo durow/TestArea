@@ -45,6 +45,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfirmMsgArgs.cs" />
+    <Compile Include="DialogMsgArgs.cs" />
     <Compile Include="DispatcherHelper.cs" />
     <Compile Include="IMessageManager.cs" />
     <Compile Include="IMessageRegister.cs" />

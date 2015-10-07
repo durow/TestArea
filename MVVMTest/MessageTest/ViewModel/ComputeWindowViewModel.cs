@@ -1,13 +1,13 @@
-﻿using System;
+﻿using MyMVVM;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MyMVVM;
 
-namespace MessageTest
+namespace MessageTest.ViewModel
 {
-    class VmManager:ViewModelManager
+    class ComputeWindowViewModel:ViewModelBase
     {
     }
 }

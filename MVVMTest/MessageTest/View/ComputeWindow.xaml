@@ -4,9 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MessageTest.View"
-        mc:Ignorable="d"
-        Title="ComputeWindow" Height="300" Width="300">
+        mc:Ignorable="d" SizeToContent="Height"
+        Title="ComputeWindow" Height="127.468" Width="225.966" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <Style TargetType="StackPanel">
+            <Setter Property="DockPanel.Dock" Value="Top"/>
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Width" Value="40"/>
+        </Style>
+    </Window.Resources>
     <DockPanel>
-        
+        <StackPanel>
+            <TextBlock Text="数字1："/>
+            <TextBox Name="NumOneText" Text="{Binding NumOne}" Width="100"/>
+        </StackPanel>
+        <StackPanel>
+            <TextBlock Text="数字2："/>
+            <TextBox Name="NumTwoText" Text="{Binding NumTwo}" Width="100"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center">
+            <Button Content="加法"/>
+            <Button Content="减法"/>
+            <Button Content="乘法"/>
+            <Button Content="除法"/>
+        </StackPanel>
+        <Label/>
     </DockPanel>
 </Window>

@@ -7,7 +7,6 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -16,7 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace UWPTest
+namespace xBindTest
 {
     /// <summary>
     /// 提供特定于应用程序的行为，以补充默认的应用程序类。
@@ -47,6 +46,7 @@ namespace UWPTest
                 this.DebugSettings.EnableFrameRateCounter = false;
             }
 #endif
+
             Frame rootFrame = Window.Current.Content as Frame;
 
             // 不要在窗口已包含内容时重复应用程序初始化，
@@ -76,19 +76,6 @@ namespace UWPTest
             }
             // 确保当前窗口处于活动状态
             Window.Current.Activate();
-
-            SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
-        }
-
-        private void App_BackRequested(object sender, BackRequestedEventArgs e)
-        {
-            var frame = Window.Current.Content as Frame;
-            if (frame == null) return;
-            if (frame.CanGoBack && e.Handled == false)
-            {
-                frame.GoBack();
-                e.Handled = true;
-            }
         }
 
         /// <summary>

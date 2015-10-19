@@ -7,14 +7,14 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="92be209a-c441-4f94-a8fb-33e202f290a7"
+    Name="9126ab91-0176-4f67-917c-116fa3dd6d86"
     Publisher="CN=durow"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="92be209a-c441-4f94-a8fb-33e202f290a7" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="9126ab91-0176-4f67-917c-116fa3dd6d86" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>UWPTest</DisplayName>
+    <DisplayName>xBindTest</DisplayName>
     <PublisherDisplayName>durow</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="UWPTest.App">
+      EntryPoint="xBindTest.App">
       <uap:VisualElements
-        DisplayName="UWPTest"
+        DisplayName="xBindTest"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="UWPTest"
+        Description="xBindTest"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

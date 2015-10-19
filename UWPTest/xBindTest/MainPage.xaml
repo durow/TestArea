@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="xBindTest.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:xBindTest"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="MP"
+    mc:Ignorable="d">
+    
+    <i:Interaction.Behaviors>
+        <core:EventTriggerBehavior EventName="Loaded">
+            <core:InvokeCommandAction Command="{x:Bind MainVM.CmdLoaded}"/>
+        </core:EventTriggerBehavior>
+    </i:Interaction.Behaviors>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="119*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="ChangeButton" Content="改变" VerticalAlignment="Top" 
+                    Command="{Binding CmdChange}"/>
+            <Button x:Name="PopupButton" Content="弹出" 
+                    Click="{x:Bind MainVM.PopupFunction}" />
+            <TextBox x:Name="TestText" Text="{x:Bind MainVM.StringText, Mode=TwoWay}" Width="200"/>
+        </StackPanel>
+    </Grid>
+</Page>

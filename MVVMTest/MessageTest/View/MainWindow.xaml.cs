@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MyMVVM;
 
 namespace MessageTest.View
 {
@@ -25,10 +26,7 @@ namespace MessageTest.View
         public MainWindow()
         {
             InitializeComponent();
-            ViewModelManager.RegisterViewModel(
-                this, 
-                new MainWindowViewModel(), 
-                new MainRegister());
+            ViewModelManager.SetViewModel(this);
         }
     }
 }

@@ -63,6 +63,7 @@
     <Compile Include="MessageRegisterBase.cs" />
     <Compile Include="StringArgs.cs" />
     <Compile Include="ViewModelBase.cs" />
+    <Compile Include="ViewModelInfo.cs" />
     <Compile Include="ViewModelManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

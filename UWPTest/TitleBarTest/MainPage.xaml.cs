@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -27,32 +28,43 @@ namespace TitleBarTest
         public MainPage()
         {
             this.InitializeComponent();
-            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
-            var appTitleBar = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TitleBar;
-            coreTitleBar.ExtendViewIntoTitleBar = true;
-            appTitleBar.ButtonBackgroundColor = Windows.UI.Colors.Transparent;
-            coreTitleBar.LayoutMetricsChanged += CoreTitleBar_LayoutMetricsChanged;
+            SetTitleBar();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            var nView = SystemNavigationManager.GetForCurrentView();
-            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-            
+            if (Frame.CanGoBack)
+                BackButton.Visibility = Visibility.Visible;
+            else
+                BackButton.Visibility = Visibility.Collapsed;
         }
 
+        private void SetTitleBar()
+        {
+            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            var appTitleBar = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
+            appTitleBar.ButtonBackgroundColor = Colors.Transparent;
+            appTitleBar.ButtonHoverBackgroundColor = Colors.LightSteelBlue;
+            coreTitleBar.LayoutMetricsChanged += CoreTitleBar_LayoutMetricsChanged;
+        }
         private void CoreTitleBar_LayoutMetricsChanged(CoreApplicationViewTitleBar sender, object args)
         {
-            TitleBarGrid.Height = sender.Height;
-            TitleBarGrid.Padding
+            TitleBar.Height = sender.Height;
+            TitleBar.Padding
                 = new Thickness(
                 sender.SystemOverlayLeftInset,
                 0.0,
                 sender.SystemOverlayRightInset,
                 0.0
             );
-            Window.Current.SetTitleBar(TitleBarGrid);
+            Window.Current.SetTitleBar(TitleText);
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.GoBack();
         }
     }
 }

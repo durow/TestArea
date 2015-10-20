@@ -5,22 +5,36 @@
     xmlns:local="using:TitleBarTest"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d" BorderThickness="5" Foreground="White" FontFamily="微软雅黑">
+    <Grid x:Name="MainGrid" >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="TitleBarGrid" Background="CornflowerBlue">
+        <Grid x:Name="TitleBarGrid" Background="CornflowerBlue"/>
+        <Grid x:Name="TitleBar">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="BackButton" Content="返回" Click="BackButton_Click"/>
+            <Grid  x:Name="TitleText" Grid.Column="1" Background="{x:Bind TitleBarGrid.Background}">
+                <TextBlock Text="标题栏测试程序" Margin="5" VerticalAlignment="Center"/>
+            </Grid>
+            <AutoSuggestBox  Grid.Column="2" Width="180" PlaceholderText="快速搜索" QueryIcon="Find"/>
+        </Grid>
+        <TextBox Grid.Row="1" BorderThickness="0"/>
+        <Grid x:Name="StatusBarGrid" Grid.Row="2" Background="CornflowerBlue">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="TitleBarTest" Margin="5" MinWidth="200" VerticalAlignment="Center"/>
-            <AutoSuggestBox Grid.Column="1" Width="200"/>
-            <Button Content="搜索" Grid.Column="2"/>
+            <TextBlock Text="程序准备就绪!" 
+                       Margin="5" MinWidth="200" 
+                       VerticalAlignment="Center"/>
         </Grid>
     </Grid>
 </Page>

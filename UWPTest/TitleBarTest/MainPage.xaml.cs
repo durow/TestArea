@@ -45,6 +45,7 @@ namespace TitleBarTest
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             var appTitleBar = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
+            //appTitleBar.BackgroundColor = Colors.Red;
             appTitleBar.ButtonBackgroundColor = Colors.Transparent;
             appTitleBar.ButtonHoverBackgroundColor = Colors.LightSteelBlue;
             coreTitleBar.LayoutMetricsChanged += CoreTitleBar_LayoutMetricsChanged;
@@ -59,7 +60,7 @@ namespace TitleBarTest
                 sender.SystemOverlayRightInset,
                 0.0
             );
-            Window.Current.SetTitleBar(TitleText);
+            //Window.Current.SetTitleBar(TitleText);
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

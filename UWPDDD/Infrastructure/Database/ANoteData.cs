@@ -11,9 +11,9 @@ namespace Infrastructure.Database
     {
         ISQLiteConnection con;
 
-        public ANoteData(ISQLiteConnection connection)
+        public ANoteData(DatabaseInfo info)
         {
-            con = connection;
+            con = info.Connection;
         }
 
         public void DeleteRowByID(int id)

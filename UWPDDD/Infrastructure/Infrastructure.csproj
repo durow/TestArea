@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="Database\ACategoryData.cs" />
     <Compile Include="Database\ANoteData.cs" />
+    <Compile Include="Database\DatabaseInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Properties\Infrastructure.rd.xml" />
   </ItemGroup>

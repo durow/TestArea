@@ -107,13 +107,29 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\ACategory.cs" />
+    <Compile Include="Model\ANote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Common\IACategoryRepository.cs" />
+    <Compile Include="Repository\Common\IANoteRepository.cs" />
+    <Compile Include="Repository\Common\IRepository.cs" />
+    <Compile Include="Repository\Database\ACategoryDataRepo.cs" />
+    <Compile Include="Repository\Database\ANoteDataRepo.cs" />
+    <Compile Include="Repository\Mars\ACategoryMarsRepo.cs" />
+    <Compile Include="Repository\Mars\ANoteMarsRepo.cs" />
+    <Compile Include="Repository\Repositories.cs" />
+    <Compile Include="Repository\WebService\ANoteWebRepo.cs" />
+    <Compile Include="Repository\WebService\ACategoryWebRepo.cs" />
     <Content Include="Properties\Domain.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="Repository\Common\" />
     <Folder Include="Service\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{ce5eaa7b-6fb0-4205-b987-161dbafa0453}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

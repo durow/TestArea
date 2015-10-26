@@ -11,6 +11,11 @@ namespace Infrastructure.Database
     {
         ISQLiteConnection con;
 
+        public ACategoryData(DatabaseInfo info)
+        {
+            con = info.Connection;
+        }
+
         public void Delete(int id)
         {
             const string DELETE_SQL = @"DELETE FROM ACategory WHERE ID=?";

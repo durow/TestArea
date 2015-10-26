@@ -1,5 +1,4 @@
 ﻿
-
 namespace Domain.Model
 {
     public sealed class ACategory

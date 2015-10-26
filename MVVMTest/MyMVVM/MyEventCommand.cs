@@ -38,14 +38,9 @@ namespace MyMVVM
         {
             if (CommandParateter != null)
                 parameter = CommandParateter;
-            var cmd = GetCommand();
+            var cmd = Command;
             if (cmd != null)
                 cmd.Execute(parameter);
-        }
-
-        private ICommand GetCommand()
-        {
-            return Command;
         }
     }
 }

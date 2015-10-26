@@ -10,24 +10,26 @@
     <UserControl.DataContext>
         <vm:NoteListViewModel x:Name="VM"/>
     </UserControl.DataContext>
-    <Grid Padding="5">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Background="LightGray" Padding="5" Grid.Row="0">
+        <Grid Background="LightGray"  Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Button Content="设置" />
-            <Button Content="新建" Grid.Column="2"/>
+            <Button Content="菜单" Height="40" Background="Transparent"/>
+            <Button Content="新建" Height="40" Grid.Column="2" Background="Transparent"/>
             <TextBlock Text="A-NoteBook" Grid.Column="1" VerticalAlignment="Center" FontFamily="微软雅黑" FontSize="24" FontWeight="Bold" TextAlignment="Center"/>
         </Grid>
-        <AutoSuggestBox Grid.Row="1" Margin="10" PlaceholderText="搜索标题" QueryIcon="Zoom"/>
-        <ListView Grid.Row="2" ItemsSource="{Binding NoteList}">
+        <AutoSuggestBox Grid.Row="1" Margin="20,7,20,5" Background="Transparent" 
+                        PlaceholderText="搜索标题" QueryIcon="Zoom" />
+        <ListView Grid.Row="2"  Padding="5,0,5,0"
+                  ItemsSource="{Binding NoteList}">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -35,7 +37,7 @@
             </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="0,5,0,0"  BorderBrush="LightGray" BorderThickness="1" CornerRadius="4">
+                    <Grid Margin="0,2,0,2"  BorderBrush="LightGray" BorderThickness="2" CornerRadius="5" Background="#FFF0ECEC">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="*"/>
@@ -45,13 +47,15 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock VerticalAlignment="Center" Text="{Binding AddDateTime}" Margin="2"/>
-                            <TextBlock Grid.Row="0" Grid.Column="2" 
+                            <TextBlock VerticalAlignment="Center" Text="{Binding AddDateTime}" 
+                                       FontSize="12" Margin="10,5,10,0"/>
+                            <TextBlock Grid.Row="0" Grid.Column="2" Margin="10,5,10,0" 
                                        VerticalAlignment="Center" TextAlignment="Right" 
-                                       Text="{Binding Category.Category}"/>
-                        <Border Grid.Row="1" Grid.ColumnSpan="3" BorderBrush="LightGray" BorderThickness="0,1,0,0">
+                                       FontSize="12" Text="{Binding Category.Category}"/>
+                        <Border Grid.Row="1" Grid.ColumnSpan="3" Margin="5,2,5,5"
+                                BorderBrush="LightGray" BorderThickness="0,1,0,0">
                             <TextBlock Text="{Binding Title}" VerticalAlignment="Center"
-                                           FontFamily="微软雅黑" FontSize="18" Margin="8"/>
+                                           FontFamily="微软雅黑" FontSize="16" Margin="5,10,5,10"/>
                         </Border>
                     </Grid>
                 </DataTemplate>

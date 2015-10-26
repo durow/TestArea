@@ -42,6 +42,48 @@ namespace ViewModel
                     EditDateTime = DateTime.Now.ToString(),
                     Title = "This is test data!",
                     Category = new ACategory {Category="我的笔记" }
+                },
+                new ANote
+                {
+                    AddDateTime = DateTime.Now.ToString(),
+                    EditDateTime = DateTime.Now.ToString(),
+                    Title = "测试数据，标题一定要长才行!!",
+                    Category = new ACategory {Category="默认分组" }
+                },
+                new ANote
+                {
+                    AddDateTime = DateTime.Now.ToString(),
+                    EditDateTime = DateTime.Now.ToString(),
+                    Title = "This is test data!",
+                    Category = new ACategory {Category="我的笔记" }
+                },
+                new ANote
+                {
+                    AddDateTime = DateTime.Now.ToString(),
+                    EditDateTime = DateTime.Now.ToString(),
+                    Title = "测试数据，标题一定要长才行!!",
+                    Category = new ACategory {Category="默认分组" }
+                },
+                new ANote
+                {
+                    AddDateTime = DateTime.Now.ToString(),
+                    EditDateTime = DateTime.Now.ToString(),
+                    Title = "This is test data!",
+                    Category = new ACategory {Category="我的笔记" }
+                },
+                new ANote
+                {
+                    AddDateTime = DateTime.Now.ToString(),
+                    EditDateTime = DateTime.Now.ToString(),
+                    Title = "测试数据，标题一定要长才行!!",
+                    Category = new ACategory {Category="默认分组" }
+                },
+                new ANote
+                {
+                    AddDateTime = DateTime.Now.ToString(),
+                    EditDateTime = DateTime.Now.ToString(),
+                    Title = "This is test data!",
+                    Category = new ACategory {Category="我的笔记" }
                 }
             };
         }

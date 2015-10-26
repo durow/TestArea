@@ -12,7 +12,6 @@ namespace EventBindingTest
     {
 
         private bool _IsReceiveMouseMove = true;
-
         public bool IsReceiveMouseMove
         {
             get { return _IsReceiveMouseMove; }
@@ -24,7 +23,6 @@ namespace EventBindingTest
         }
 
         private string _tipText;
-
         public string TipText
         {
             get { return _tipText; }

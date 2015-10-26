@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:cmd="clr-namespace:MyMVVM;assembly=MyMVVM"
-        xmlns:local="clr-namespace:EventBindingTest"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="350" Width="525">
     <i:Interaction.Triggers>

@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Domain.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using UWPDDD.View;
 using ViewModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -15,26 +15,27 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-//“空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 上有介绍
+// “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上提供
 
-namespace UWPDDD
+namespace UWPDDD.View
 {
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class NoteInfoPage : Page
     {
-        NoteListViewModel VM { get;}
 
-        public MainPage()
+        public NoteInfoViewModel VM { get; }
+
+        public NoteInfoPage()
         {
             this.InitializeComponent();
-            VM = DataContext as NoteListViewModel;
+            VM = DataContext as NoteInfoViewModel;
         }
 
-        private void Grid_Tapped(object sender, TappedRoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Frame.Navigate(typeof(NoteInfoPage),NoteListView.SelectedItem);
+            base.OnNavigatedTo(e);
         }
     }
 }

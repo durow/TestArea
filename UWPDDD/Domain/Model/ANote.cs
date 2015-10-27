@@ -1,5 +1,7 @@
 ﻿
 
+using Domain.Repository;
+
 namespace Domain.Model
 {
     public sealed class ANote
@@ -10,5 +12,10 @@ namespace Domain.Model
         public string Title { get; set; }
         public string Content { get; set; }
         public ACategory Category { get; set; }
+
+        public void UpdateContent()
+        {
+            Content = Repositories.ANoteRepository.GetContent(ID);
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace Domain.Repository.Common
     public interface IANoteRepository:IRepository<ANote>
     {
         ANote GetOne(int id);
+        string GetContent(int id);
     }
 }

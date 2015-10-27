@@ -20,6 +20,11 @@ namespace Domain.Repository.Database
             throw new NotImplementedException();
         }
 
+        public string GetContent(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public ANote GetOne(int id)
         {
             throw new NotImplementedException();

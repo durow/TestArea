@@ -96,9 +96,10 @@ namespace ViewModel
 
         public override void InitRealData()
         {
-            var notes = Repositories.ANoteRepository.GetAll();
-            if (notes == null) return;
-            NoteList = new ObservableCollection<ANote>(notes);
+            InitTestData();
+            //var notes = Repositories.ANoteRepository.GetAll();
+            //if (notes == null) return;
+            //NoteList = new ObservableCollection<ANote>(notes);
         }
     }
 }

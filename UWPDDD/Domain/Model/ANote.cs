@@ -15,7 +15,7 @@ namespace Domain.Model
 
         public void UpdateContent()
         {
-            Content = Repositories.ANoteRepository.GetContent(ID);
+            //Content = Repositories.ANoteRepository.GetContent(ID);
         }
     }
 }

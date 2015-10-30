@@ -79,7 +79,7 @@ namespace ViewModel
 
         public override void InitRealData()
         {
-            throw new NotImplementedException();
+            InitTestData();
         }
     }
 }

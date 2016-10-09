@@ -110,6 +110,7 @@
     <Compile Include="NoteInfoViewModel.cs" />
     <Compile Include="NoteListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModelLocator.cs" />
     <Content Include="Properties\ViewModel.rd.xml" />
   </ItemGroup>
   <ItemGroup>

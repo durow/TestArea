@@ -45,6 +45,19 @@ namespace Infrastructure.Database
             }
         }
 
+        public string GetContentByID(int id)
+        {
+            const string GETCONTENT_SQL = @"SELECT Content FROM ANote WHERE ID=?";
+            using (var statement = con.Prepare(GETCONTENT_SQL))
+            {
+                var result = statement.Step();
+                if (result == SQLiteResult.ROW)
+                    return statement[0].ToString();
+                else
+                    return string.Empty;
+            }
+        }
+
         public void Insert(string addDateTime,
                                   string editDateTime,
                                   string title,

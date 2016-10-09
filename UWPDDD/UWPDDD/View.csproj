@@ -102,11 +102,8 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\NoteInfoControl.xaml.cs">
-      <DependentUpon>NoteInfoControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\NoteListControl.xaml.cs">
-      <DependentUpon>NoteListControl.xaml</DependentUpon>
+    <Compile Include="View\NoteInfoPage.xaml.cs">
+      <DependentUpon>NoteInfoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -135,11 +132,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\NoteInfoControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\NoteListControl.xaml">
+    <Page Include="View\NoteInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

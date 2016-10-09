@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using AyxMVVM;
 using System.Collections.ObjectModel;
 using Domain.Model;
+using Domain.Repository;
 
 namespace ViewModel
 {
-    public class NoteListViewModel:ObserveObject
+    public class NoteListViewModel:ViewModelBase
     {
         private ObservableCollection<ANote> _NoteList;
         public ObservableCollection<ANote> NoteList
@@ -26,6 +27,11 @@ namespace ViewModel
         }
 
         public NoteListViewModel()
+        {
+            
+        }
+
+        public override void InitTestData()
         {
             NoteList = new ObservableCollection<ANote>
             {
@@ -86,6 +92,14 @@ namespace ViewModel
                     Category = new ACategory {Category="我的笔记" }
                 }
             };
+        }
+
+        public override void InitRealData()
+        {
+            InitTestData();
+            //var notes = Repositories.ANoteRepository.GetAll();
+            //if (notes == null) return;
+            //NoteList = new ObservableCollection<ANote>(notes);
         }
     }
 }

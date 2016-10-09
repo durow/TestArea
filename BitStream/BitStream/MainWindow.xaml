@@ -1,0 +1,47 @@
+﻿<Window x:Class="BitStream.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BitStream" Loaded="Window_Loaded"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Bit Data  ----  by durow - just for fun!" Height="750" Width="1025">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBox Grid.Column="1" Grid.RowSpan="5" x:Name="BinText" FontFamily="Consolas" FontSize="18" IsReadOnly="True" Background="LightGray"/>
+        <DockPanel Grid.Row="0">
+            <DockPanel DockPanel.Dock="Top">
+                <TextBlock Text="text for encoding" VerticalAlignment="Center" Margin="5"/>
+                <TextBlock Text="{Binding ElementName=DataText,Path=Text.Length}" Margin="5"/>
+                <RadioButton x:Name="Char7Radio" GroupName="CharBit" Content="7 bits ASCII character" DockPanel.Dock="Right" Margin="5" Checked="Char7Radio_Checked"/>
+                <RadioButton x:Name="Char6Radio" GroupName="CharBit" Content="6 bit custom character" IsChecked="True" DockPanel.Dock="Right" Margin="5" Checked="Char6Radio_Checked"/>
+                <TextBlock/>
+            </DockPanel>
+            <TextBox x:Name="DataText"/>
+        </DockPanel>
+        <Button Grid.Row="1" x:Name="EncodeButton" Content="Encode" Click="EncodeButton_Click"/>
+        <DockPanel Grid.Row="2">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                <TextBlock Text="encoded text" Margin="5"/>
+                <TextBlock Text="{Binding ElementName=EncodeText,Path=Text.Length}" Margin="5"/>
+            </StackPanel>
+            <TextBox x:Name="EncodeText"/>
+        </DockPanel>
+        <Button Grid.Row="3" x:Name="DecodeButton" Content="Decode" Click="DecodeButton_Click"/>
+        <DockPanel Grid.Row="4">
+            <TextBlock Text="decoded text" Margin="5" DockPanel.Dock="Top"/>
+            <TextBox Grid.Row="4" x:Name="DecodeText"/>
+        </DockPanel>
+    </Grid>
+</Window>

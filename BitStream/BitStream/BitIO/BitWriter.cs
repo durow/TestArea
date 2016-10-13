@@ -8,7 +8,7 @@ namespace BitStream.BitIO
 {
     public class BitWriter
     {
-        public StringBuilder BinString { get; private set; }
+        public readonly StringBuilder BinString;
 
         public BitWriter()
         {
@@ -21,22 +21,23 @@ namespace BitStream.BitIO
             BinString = new StringBuilder(bitLength + add);
         }
 
-        public void WriteByte(byte b, int len=8)
+        public void WriteByte(byte b, int bitLength=8)
         {
-            var bin = Byte2Bin(b, len);
-            BinString.Append(bin);
+            var bin = Convert.ToString(b, 2);
+            AppendBinString(bin, bitLength);
         }
 
-        public void WriteInt(int i, int len)
+        public void WriteInt(int i, int bitLength)
         {
-            var bin = Int2Bin(i, len);
-            BinString.Append(bin);
+            var bin = Convert.ToString(i, 2);
+            AppendBinString(bin, bitLength);
         }
 
         public void WriteChar7(char c)
         {
-            var bin = Char2Bin(c, 7);
-            BinString.Append(bin);
+            var b = Convert.ToByte(c);
+            var bin = Convert.ToString(b, 2);
+            AppendBinString(bin, 7);
         }
 
         public byte[] GetBytes()
@@ -60,39 +61,22 @@ namespace BitStream.BitIO
             return BinString.ToString();
         }
 
-        public static string Byte2Bin(byte b, int len)
-        {
-            var bin = Convert.ToString(b, 2);
-            return CheckStringLength(bin, len);
-        }
 
-        public static string Int2Bin(int i, int len)
+        private void AppendBinString(string bin, int bitLength)
         {
-            var bin = Convert.ToString(i, 2);
-            return CheckStringLength(bin, len);
-        }
-
-        public static string Char2Bin(char c, int len)
-        {
-            var b = Convert.ToByte(c);
-            return Byte2Bin(b, len);
-        }
-
-        private static string CheckStringLength(string str, int len)
-        {
-            if(str.Length > len)
+            if (bin.Length > bitLength)
                 throw new Exception("len is too short");
-
-            while(str.Length < len)
+            var add = bitLength - bin.Length;
+            for (int i = 0; i < add; i++)
             {
-                str = "0" + str;
+                BinString.Append('0');
             }
-            return str;
+            BinString.Append(bin);
         }
 
         private void Check8()
         {
-            var add = BinString.Capacity - BinString.Length;
+            var add = 8 - BinString.Length % 8;
             for (int i = 0; i < add; i++)
             {
                 BinString.Append("0");

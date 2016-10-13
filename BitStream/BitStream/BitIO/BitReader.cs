@@ -8,7 +8,7 @@ namespace BitStream.BitIO
 {
     public class BitReader
     {
-        public StringBuilder BinString { get; private set; }
+        public readonly StringBuilder BinString;
         public int Position { get; set; }
         public int Length
         {
@@ -35,9 +35,9 @@ namespace BitStream.BitIO
             Position = 0;
         }
 
-        public byte ReadByte(int index)
+        public byte ReadByte(int offset)
         {
-            var bin = BinString.ToString(index, 8);
+            var bin = BinString.ToString(offset, 8);
             return Convert.ToByte(bin, 2);
         }
 
@@ -48,28 +48,54 @@ namespace BitStream.BitIO
             return result;
         }
 
-        public int ReadInt(int index, int length)
+        public int ReadInt(int offset, int bitLength)
         {
-            var bin = BinString.ToString(index, length);
+            var bin = BinString.ToString(offset, bitLength);
             return Convert.ToInt32(bin, 2);
         }
 
-        public int ReadInt(int length)
+        public int ReadInt(int bitLength)
         {
-            var result = ReadInt(Position, length);
-            Position += length;
+            var result = ReadInt(Position, bitLength);
+            Position += bitLength;
             return result;
         }
 
-        public string ReadBinString(int index, int length)
+        public Int16 ReadInt16(int offset, int bitLength)
         {
-            return BinString.ToString(index, length);
+            var bin = BinString.ToString(offset, bitLength);
+            return Convert.ToInt16(bin, 2);
         }
 
-        public string ReadBinString(int length)
+        public Int16 ReadInt16(int bitLength)
         {
-            var result = ReadBinString(Position, length);
-            Position += length;
+            var result = ReadInt16(Position, bitLength);
+            Position += bitLength;
+            return result;
+        }
+
+        public bool ReadBool(int offset)
+        {
+            var result = ReadInt(offset, 1);
+            return offset == 1;
+        }
+
+        public bool ReadBool()
+        {
+            var result = ReadBool(Position);
+            Position++;
+            return result;
+        }
+
+        public string ReadBinString(int offset, int bitLength)
+        {
+            return BinString.ToString(offset, bitLength);
+        }
+
+        public string ReadBinString(int bitLength)
+        {
+            var result = ReadBinString(Position, bitLength);
+            Position += bitLength;
             return result;
         }
 

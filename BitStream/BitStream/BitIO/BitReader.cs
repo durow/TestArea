@@ -21,7 +21,7 @@ namespace BitStream.BitIO
         {
             get
             {
-                return BinString.Length - Position;
+                return BinString.Length * 8 - Position;
             }
         }
 
